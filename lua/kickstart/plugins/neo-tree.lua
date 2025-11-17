@@ -11,13 +11,21 @@ return {
   },
   lazy = false,
   keys = {
-    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    -- Actual commands that will show under <leader>e
+    { '<leader>ee', '<cmd>Neotree toggle<CR>', desc = 'Toggle', silent = true },
+    { '<leader>er', '<cmd>Neotree reveal<CR>', desc = 'Reveal file', silent = true },
+    { '<leader>ef', '<cmd>Neotree focus<CR>', desc = 'Focus', silent = true },
+    { '<leader>ec', '<cmd>Neotree close<CR>', desc = 'Close', silent = true },
+
+    -- Your old mapping kept as a fast shortcut
+    { '\\', '<cmd>Neotree reveal<CR>', desc = 'Neo-tree reveal', silent = true },
   },
   opts = {
     filesystem = {
       window = {
         mappings = {
           ['\\'] = 'close_window',
+          ['<space>'] = 'open',
         },
       },
     },
