@@ -30,10 +30,17 @@ vim.keymap.set('n', 'bx', ':bdelete<CR>', opts)
 vim.keymap.set('n', 'bn', '<cmd> enew <CR>', opts)
 
 -- Window Managment
+-- v/hsplit, equal size and close
 vim.keymap.set('n', '<leader>wv', '<C-w>v', opts)
 vim.keymap.set('n', '<leader>wh', '<C-w>s', opts)
 vim.keymap.set('n', '<leader>ws', '<C-W>=', opts)
 vim.keymap.set('n', '<leader>wx', ':close<CR>', opts)
+
+-- Tabs
+vim.keymap.set('n', '<leader>to', ':tabnew<CR>', opts) -- open new tab
+vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', opts) -- close current tab
+vim.keymap.set('n', '<leader>tn', ':tabn<CR>', opts) -- go to next tab
+vim.keymap.set('n', '<leader>tp', ':tabp<CR>', opts) -- go to previous tab
 
 CORE_KEYMAPS = {
   { '<leader>w', group = '[W]indow' },
@@ -48,14 +55,22 @@ CORE_KEYMAPS = {
   { '<leader>bx', desc = 'close buffer' },
   { '<leader>bn', desc = 'new buffer' },
   { '<leader>bf', desc = 'save buffer (no format)' },
+  { '<leader>to', desc = 'open new tab' },
+  { '<leader>tx', desc = 'close current tab' },
+  { '<leader>tn', desc = 'go to next tab' },
+  { '<leader>tp', desc = 'go to previous tab' },
 }
-
 -- Keybinds to make split navigation easier.
 --   Use CTRL+<hjkl> to switch between windows
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+--   resize split with arrow keys
+vim.keymap.set('n', '<Up>', ':resize -2<CR>', opts)
+vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts)
+vim.keymap.set('n', '<Left>', ':vertical resize +2<CR>', opts)
+vim.keymap.set('n', '<Right>', ':vertical resize -2<CR>', opts)
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
