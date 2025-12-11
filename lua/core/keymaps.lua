@@ -24,10 +24,10 @@ vim.keymap.set('n', 'n', 'nzzzv', opts)
 vim.keymap.set('n', 'N', 'Nzzzv', opts)
 
 -- Buffers
-vim.keymap.set('n', 'b<Tab>', ':bnext<CR>', opts)
-vim.keymap.set('n', 'b<S-Tab>', ':bprevious<CR>', opts)
-vim.keymap.set('n', 'bx', ':bdelete<CR>', opts)
-vim.keymap.set('n', 'bn', '<cmd> enew <CR>', opts)
+vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
+vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
+vim.keymap.set('n', '<leader>bx', ':bdelete<CR>', opts)
+vim.keymap.set('n', '<leader>bn', '<cmd> enew <CR>', opts)
 
 -- Window Managment
 -- v/hsplit, equal size and close
@@ -41,6 +41,9 @@ vim.keymap.set('n', '<leader>to', ':tabnew<CR>', opts) -- open new tab
 vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', opts) -- close current tab
 vim.keymap.set('n', '<leader>tn', ':tabn<CR>', opts) -- go to next tab
 vim.keymap.set('n', '<leader>tp', ':tabp<CR>', opts) -- go to previous tab
+
+-- Toggle line wrapping
+vim.keymap.set('n', '<leader>lw', '<cmd>set wrap!<CR>', opts)
 
 CORE_KEYMAPS = {
   { '<leader>w', group = '[W]indow' },

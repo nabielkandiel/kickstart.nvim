@@ -21,7 +21,14 @@ return {
     { '\\', '<cmd>Neotree reveal<CR>', desc = 'Neo-tree reveal', silent = true },
   },
   opts = {
+    window = {
+      position = 'left',
+      width = 32,
+      auto_resize = true,
+    },
     filesystem = {
+      follow_current_file = { enabled = true },
+      hijack_netrw_behavior = 'disabled',
       window = {
         mappings = {
           ['\\'] = 'close_window',
